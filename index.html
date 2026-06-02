@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joka Mwaga Self Help Group</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ====== NAVBAR ====== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>Joka Mwaga</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#finances" data-target-tab="tracker-tab">Contributions</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#finances" data-target-tab="summary-tab">Finances</a></li>
+                <li><a href="#announcements">Updates</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ====== HERO ====== -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Joka Mwaga</h1>
+            <p class="hero-subtitle">Self Help Group</p>
+            <p class="hero-desc">United by family, empowered by contribution — building a secure future together through collective investment and mutual support.</p>
+            
+            <div class="hero-search-wrap">
+                <input type="text" id="memberSearch" placeholder="Find a family member..." class="hero-search-input">
+            </div>
+
+            <div class="hero-cta">
+                <a href="#finances" class="btn btn-primary" data-target-tab="tracker-tab">View Contributions</a>
+                <a href="#finances" class="btn btn-outline" data-target-tab="summary-tab">View Finances</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="statMembers" data-target="21">0</span>
+                    <span class="stat-label">Active Members</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="statMonths" data-target="1">0</span>
+                    <span class="stat-label">Month Active</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="statInvestments" data-target="0">0</span>
+                    <span class="stat-label">Investments</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="statTotalSaved" data-target="5400">0</span>
+                    <span class="stat-label">Total Saved (KES)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FAMILY SNAPSHOT ====== -->
+    <section class="section snapshot-section" id="snapshot">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Group Progress</span>
+                <h2>Our Family Journey</h2>
+                <p class="section-desc">A simple look at how we are growing together. Every small step brings us closer to our big dreams.</p>
+            </div>
+
+            <div class="snapshot-grid">
+                <!-- Savings Goal -->
+                <div class="snapshot-card goal-card">
+                    <div class="goal-header">
+                        <h3>Our Big Goal: KES 50,000</h3>
+                        <span class="goal-percent" id="goalPercentText">0%</span>
+                    </div>
+                    <div class="goal-bar-wrap">
+                        <div class="goal-bar-fill" id="goalBarFill" style="width: 0%"></div>
+                    </div>
+                    <p class="goal-desc" id="goalImpactDesc">We are just starting our journey! Every contribution builds our family pot.</p>
+                </div>
+
+                <!-- Health Summary -->
+                <div class="health-summary">
+                    <!-- Deadline Card -->
+                    <div class="health-item deadline-highlight">
+                        <div class="health-icon icon-deadline"><i class="fas fa-calendar-check"></i></div>
+                        <div class="health-info">
+                            <h4 id="nextDeadline">End of Every Month</h4>
+                            <p>Next Deadline: <strong id="deadlineDate">...</strong></p>
+                        </div>
+                    </div>
+                    <div class="health-item">
+                        <div class="health-icon icon-up"><i class="fas fa-smile"></i></div>
+                        <div class="health-info">
+                            <h4 id="countUpToDate">0 Members</h4>
+                            <p>Fully Up to Date! Keep it up!</p>
+                        </div>
+                    </div>
+                    <div class="health-item">
+                        <div class="health-icon icon-pending"><i class="fas fa-clock"></i></div>
+                        <div class="health-info">
+                            <h4 id="countNeedsBoost">0 Members</h4>
+                            <p>Almost there. You can do it!</p>
+                        </div>
+                    </div>
+                    <div class="health-item">
+                        <div class="health-icon icon-ahead"><i class="fas fa-star"></i></div>
+                        <div class="health-info">
+                            <h4 id="countSuperSavers">0 Members</h4>
+                            <p>Super Savers (Paid Ahead)! Amazing!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="impact-box">
+                <i class="fas fa-lightbulb"></i>
+                <p id="impactStatement">With our current savings, we are building enough power to start making our family's vision a reality!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FINANCES & CONTRIBUTIONS (Tabbed) ====== -->
+    <section class="section bg-light" id="finances">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Financial Hub</span>
+                <h2>Group Finances & Tracker</h2>
+                <p class="section-desc">A centralized, easy-to-use hub for all group finances. Switch between tabs to see the overview, update payments, or view history.</p>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="summary-tab"><i class="fas fa-chart-pie"></i> Overview</button>
+                <button class="tab-btn" data-tab="tracker-tab"><i class="fas fa-list-check"></i> Contribution Tracker</button>
+                <button class="tab-btn" data-tab="history-tab"><i class="fas fa-history"></i> History</button>
+            </div>
+
+            <!-- Tab Content: Summary -->
+            <div class="tab-content active" id="summary-tab">
+                <div class="finances-summary">
+                    <div class="finance-card highlight">
+                        <i class="fas fa-piggy-bank"></i>
+                        <h3>Total Contributions <i class="fas fa-info-circle help-hint" title="All the money we have saved together so far."></i></h3>
+                        <span class="finance-amount" id="totalContributions">KES 0</span>
+                        <p>Lifetime member contributions</p>
+                    </div>
+                    <div class="finance-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Investment Portfolio <i class="fas fa-info-circle help-hint" title="Money we have put into business or projects to make it grow."></i></h3>
+                        <span class="finance-amount" id="totalInvestments">KES 0</span>
+                        <p>Current value of investments</p>
+                    </div>
+                    <div class="finance-card">
+                        <i class="fas fa-percent"></i>
+                        <h3>Total Returns <i class="fas fa-info-circle help-hint" title="Cumulative returns on investments."></i></h3>
+                        <span class="finance-amount" id="totalReturns">KES 0</span>
+                        <p>Cumulative returns on investments</p>
+                    </div>
+                    <div class="finance-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Emergency Fund <i class="fas fa-info-circle help-hint" title="Reserved for member emergencies. Not yet allocated."></i></h3>
+                        <span class="finance-amount" id="emergencyFund">KES 0</span>
+                        <p>Not yet allocated</p>
+                    </div>
+                </div>
+                <div class="charts-row">
+                    <div class="chart-container">
+                        <h3>Monthly Contributions <span class="chart-year" id="chartYear">2026</span></h3>
+                        <canvas id="contributionsChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Fund Allocation</h3>
+                        <canvas id="allocationChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Tracker -->
+            <div class="tab-content" id="tracker-tab">
+                <!-- Contribution Dashboard -->
+                <div class="contrib-dashboard" id="contribDashboardWrap">
+                    <div class="print-header">
+                        <h2>Joka Mwaga Self Help Group</h2>
+                        <p>Member Contributions Statement — 2026</p>
+                        <p class="print-date">Generated: <span id="printDate"></span></p>
+                    </div>
+                    <div class="dashboard-header">
+                        <h3><i class="fas fa-table"></i> Joka Mwaga — 2026 Contributions</h3>
+                        <div class="dashboard-actions">
+                            <button class="btn-icon" id="addMemberBtn" title="Add new member"><i class="fas fa-plus"></i> Add Member</button>
+                            <button class="btn-icon" id="editToggleBtn" title="Edit contributions"><i class="fas fa-pen"></i> Edit</button>
+                            <button class="btn-icon" id="shareWABtn" title="Share as WhatsApp image"><i class="fab fa-whatsapp"></i> Share</button>
+                            <button class="btn-icon" id="resetBtn" title="Reset to defaults"><i class="fas fa-undo"></i> Reset</button>
+                            <button class="btn-icon" id="printPdfBtn" title="Print as PDF"><i class="fas fa-file-pdf"></i> PDF</button>
+                        </div>
+                    </div>
+                    <div class="dashboard-legend">
+                        <span><span class="legend-dot dot-paid"></span> Paid</span>
+                        <span><span class="legend-dot dot-overdue"></span> Overdue</span>
+                        <span><span class="legend-dot dot-due"></span> Due Now</span>
+                        <span><span class="legend-dot dot-pending"></span> Future</span>
+                        <span class="edit-hint" id="editHint"><i class="fas fa-info-circle"></i> Click any cell to edit</span>
+                    </div>
+                    <div class="table-responsive" id="captureArea">
+                        <table class="contrib-table" id="contribDashboard">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Reg <i class="fas fa-info-circle help-hint" title="A one-time fee to join our family pot."></i><br><small>50</small></th>
+                                    <th>May<br><small>200</small></th>
+                                    <th>Jun<br><small>200</small></th>
+                                    <th>Jul<br><small>200</small></th>
+                                    <th>Aug<br><small>200</small></th>
+                                    <th>Sep<br><small>200</small></th>
+                                    <th>Oct<br><small>200</small></th>
+                                    <th>Nov<br><small>200</small></th>
+                                    <th>Dec<br><small>200</small></th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="contribDashboardBody">
+                                <!-- JS fills this -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: History -->
+            <div class="tab-content" id="history-tab">
+                <div class="table-container">
+                    <h3>Recent Transactions</h3>
+                    <div class="table-responsive">
+                        <table class="transactions-table" id="transactionsTable">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                    <th>Amount (KES)</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionsBody">
+                                <!-- JS fills this -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="charts-row" style="margin-top: 24px;">
+                    <div class="chart-container full-width">
+                        <h3>Portfolio Growth (Annual)</h3>
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ABOUT ====== -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Us</span>
+                <h2>Who We Are</h2>
+                <p class="section-desc">Joka Mwaga is more than a savings group — we are a family bound by trust, transparency, and a shared vision for financial independence and mutual care.</p>
+            </div>
+            <div class="welcome-message">
+                <p>Welcome to our family group — a home for all descendants of our beloved grandparent, <strong>Marikus Mwaga Akumu</strong>. This platform unites us in love, respect, togetherness, and family pride. May we strengthen our bond, support one another, preserve our heritage, and celebrate every milestone as one family. Feel free to interact, share memories, ideas, and important updates. Together, we remain stronger. <strong>You can make it better.</strong></p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To foster a culture of disciplined saving, smart investing, and compassionate emergency support among our family members.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>A financially empowered family where every member thrives through collective effort, transparency, and mutual accountability.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Our Values</h3>
+                    <p>Trust, Transparency, Unity, Discipline, and Mutual Care — these principles guide every contribution and every decision we make.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== MEMBERS ====== -->
+    <section class="section" id="members">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Family</span>
+                <h2>Group Members</h2>
+                <p class="section-desc">The heart of Joka Mwaga — family members committed to building a brighter financial future together.</p>
+            </div>
+            <div class="members-grid" id="membersGrid">
+                <!-- JS fills this -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ANNOUNCEMENTS ====== -->
+    <section class="section" id="announcements">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Latest Updates</span>
+                <h2>Announcements & News</h2>
+                <p class="section-desc">Stay informed with the latest group updates, meeting reminders, and financial announcements.</p>
+            </div>
+            <div class="announcements-container" id="announcementsContainer">
+                <!-- JS fills this -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== GALLERY ====== -->
+    <section class="section bg-light" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Memories</span>
+                <h2>Photo Gallery</h2>
+                <p class="section-desc">Moments from our meetings, events, and celebrations together.</p>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- JS fills this -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CONTACT ====== -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Reach Out</span>
+                <h2>Contact Leadership</h2>
+                <p class="section-desc">Have a question or need assistance? Reach out directly to our group secretary for a quick response.</p>
+            </div>
+            <div class="leadership-contact-card">
+                <div class="leader-profile">
+                    <div class="leader-avatar">BO</div>
+                    <div class="leader-info">
+                        <h3>Benard Ooko</h3>
+                        <p>Group Secretary</p>
+                        <span class="leader-location"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span>
+                    </div>
+                </div>
+                <div class="leader-actions">
+                    <a href="https://wa.me/254728371521" class="btn btn-primary whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                    <a href="tel:+254728371521" class="btn btn-outline call-btn"><i class="fas fa-phone-alt"></i> Call Directly</a>
+                </div>
+                <div class="meeting-note">
+                    <i class="fas fa-calendar-alt"></i>
+                    <p><strong>Monthly Meetings:</strong> Every 1st Sunday, 10:00 AM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-hands-helping"></i> Joka Mwaga</h3>
+                    <p>Building a secure future together — one contribution at a time.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#finances">Finances</a></li>
+                        <li><a href="#contributions">Contributions</a></li>
+                        <li><a href="#announcements">Updates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Constitution</a></li>
+                        <li><a href="#">Meeting Minutes</a></li>
+                        <li><a href="#">Financial Policy</a></li>
+                        <li><a href="#">Member Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Connected</h4>
+                    <p>Get updates via our WhatsApp group or email newsletter.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Joka Mwaga Self Help Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ====== MODALS ====== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <!-- Add Member Modal -->
+        <div class="modal" id="addMemberModal">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-plus"></i> Add New Member</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addMemberForm">
+                    <div class="form-row">
+                        <label>Full Name</label>
+                        <input type="text" id="newMemberName" placeholder="e.g., John Doe" required>
+                    </div>
+                    <div class="form-row">
+                        <label>Role</label>
+                        <select id="newMemberRole">
+                            <option value="Member">Member</option>
+                            <option value="Chairperson">Chairperson</option>
+                            <option value="Treasurer">Treasurer</option>
+                            <option value="Secretary">Secretary</option>
+                            <option value="Vice Chairperson">Vice Chairperson</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Add Member</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Member Details Modal -->
+        <div class="modal" id="memberDetailsModal">
+            <div class="modal-header">
+                <h3 id="detailsMemberName">Member Details</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="details-summary">
+                    <div class="detail-item">
+                        <span class="detail-label">Total Contributed</span>
+                        <span class="detail-value" id="detailsTotal">KES 0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Status</span>
+                        <span class="detail-value" id="detailsStatus">Up to Date</span>
+                    </div>
+                </div>
+                <div class="details-table-wrap">
+                    <table class="details-table">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="detailsTableBody">
+                            <!-- JS fills this -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== LIGHTBOX ====== -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <span class="lightbox-prev"><i class="fas fa-chevron-left"></i></span>
+        <span class="lightbox-next"><i class="fas fa-chevron-right"></i></span>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- ====== SCRIPTS ====== -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
