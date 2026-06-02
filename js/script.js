@@ -94,32 +94,16 @@ const announcements = [
     date: "June 1, 2026",
     tag: "Welcome",
     urgent: false,
-    body: "We are thrilled to officially launch Joka Mwaga Self Help Group! Our first month has been a success with 21 members registered and KES 5,400 collected. Thank you to everyone for your commitment. Let's build a secure future together.",
-    author: "Group Leadership"
+    body: "We are thrilled to officially launch Joka Mwaga Self Help Group! Our first month has been a success with 23 members registered and KES 6,100 collected. Thank you to everyone for your commitment. Let's build a secure future together.",
+    author: "Member"
   },
   {
     title: "Monthly Contribution Reminder",
     date: "June 1, 2026",
     tag: "Finance",
     urgent: false,
-    body: "June contributions of KES 200 per member are now due. Please pay by the 10th to avoid any penalties. Members who have not yet paid the registration fee of KES 50 are reminded to clear it. Let's keep up the momentum!",
-    author: "Treasurer"
-  },
-  {
-    title: "First Investment Discussion - Save the Date",
-    date: "May 28, 2026",
-    tag: "Meeting",
-    urgent: true,
-    body: "Our first investment planning meeting will be held on Sunday, June 8th at 10:00 AM. Agenda includes reviewing our pooled funds and identifying initial investment opportunities. All members are expected to attend.",
-    author: "Chairperson"
-  },
-  {
-    title: "Emergency Fund Guidelines",
-    date: "May 25, 2026",
-    tag: "Policy",
-    urgent: false,
-    body: "The emergency fund guidelines have been shared with all members. A minimum of 20% of monthly contributions will be set aside for emergencies. Requests must be submitted in writing to the treasurer and approved by at least two executives.",
-    author: "Secretary"
+    body: "June contributions of KES 200 per member are now due. Please pay by the 30th June, Stronger Together!. Let's keep up the momentum!",
+    author: "Member"
   },
 ];
 
