@@ -39,6 +39,11 @@ function loadMembers() {
 
 function saveMembers(data) {
   localStorage.setItem(STORAGE_KEY_MEMBERS, JSON.stringify(data));
+  if (fbDb) {
+    fbDb.ref('jokaMwaga/members').set(data).catch(function(e) {
+      console.warn('Firebase save failed (members):', e);
+    });
+  }
 }
 
 let members = loadMembers();
@@ -83,9 +88,50 @@ function loadContribs() {
 
 function saveContribs(data) {
   localStorage.setItem(STORAGE_KEY_CONTRIBS, JSON.stringify(data));
+  if (fbDb) {
+    fbDb.ref('jokaMwaga/contribs').set(data).catch(function(e) {
+      console.warn('Firebase save failed (contribs):', e);
+    });
+  }
 }
 
 let memberContribs = loadContribs();
+
+/* ====== FIREBASE SYNC ====== */
+async function syncFromFirebase() {
+  if (!fbDb) return;
+  try {
+    var snapMembers = await fbDb.ref('jokaMwaga/members').once('value');
+    var snapContribs = await fbDb.ref('jokaMwaga/contribs').once('value');
+    var changed = false;
+
+    if (snapMembers.exists()) {
+      members = snapMembers.val();
+      localStorage.setItem(STORAGE_KEY_MEMBERS, JSON.stringify(members));
+      changed = true;
+    } else {
+      fbDb.ref('jokaMwaga/members').set(members).catch(function(){});
+    }
+
+    if (snapContribs.exists()) {
+      memberContribs = snapContribs.val();
+      localStorage.setItem(STORAGE_KEY_CONTRIBS, JSON.stringify(memberContribs));
+      changed = true;
+    } else {
+      fbDb.ref('jokaMwaga/contribs').set(memberContribs).catch(function(){});
+    }
+
+    if (changed) {
+      updateFinancialSummaryFromContribs();
+      updateTransactionsFromContribs();
+      renderMembers();
+      renderContributionDashboard();
+      initCharts();
+    }
+  } catch (e) {
+    console.warn('Firebase sync failed, using localStorage:', e);
+  }
+}
 let editMode = false;
 
 let transactions = [];
@@ -1080,6 +1126,9 @@ document.addEventListener('DOMContentLoaded', () => {
       activateTab(targetTab);
     });
   });
+
+  // Sync latest data from Firebase (if configured)
+  syncFromFirebase();
 });
 
 /* ====== NEWSLETTER FORM ====== */
