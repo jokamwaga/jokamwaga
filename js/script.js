@@ -55,7 +55,7 @@ const DEFAULT_CONTRIBS = [
   { no: 7,  name: "Lightness Peter",  reg: 50, may: 200, jun: 200, jul: 200, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
   { no: 8,  name: "Elsa Anyango",     reg: 50, may: 200, jun: 0, jul: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
   { no: 9,  name: "Stephen Omondi",   reg: 50, may: 200, jun: 0, jul: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
-  { no: 10, name: "Catherine Masitsa", reg: 50, may: 0, jun: 0, jul: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
+  { no: 10, name: "Catherine Masitsa", reg: 50, may:200, jun: 0, jul: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
   { no: 11, name: "Maurice Otieno",   reg: 50, may: 200, jun: 0, jul: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
   { no: 12, name: "Jacklyne Jakoyo",  reg: 50, may: 200, jun: 0, jul: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
   { no: 13, name: "John Ondiek",      reg: 50, may: 200, jun: 0, jul: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
