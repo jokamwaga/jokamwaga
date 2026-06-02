@@ -572,6 +572,10 @@ function getMemberStatus(m) {
 }
 
 /* ====== STAT ANIMATION ====== */
+function animateCounters() {
+  updateFinancialSummaryFromContribs();
+}
+
 function animateStat(elementId, target, isCurrency = false) {
   const el = document.getElementById(elementId);
   if (!el) return;
