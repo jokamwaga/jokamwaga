@@ -21,6 +21,8 @@ const DEFAULT_MEMBERS = [
   { name: "Evans Adwar", role: "Member", initials: "EAd", active: true },
   { name: "Collins Adwar", role: "Member", initials: "CA", active: true },
   { name: "Irine Awuor", role: "Member", initials: "IA", active: true },
+  { name: "Charles Ochieng", role: "Member", initials: "CO", active: true },
+  { name: "Lucy Kamau", role: "Member", initials: "LK", active: true },
 ];
 
 const STORAGE_KEY_MEMBERS = 'jokaMwaga_members';
@@ -65,6 +67,8 @@ const DEFAULT_CONTRIBS = [
   { no: 19, name: "Evans Adwar",      reg: 50, may: 200, jun: 0, jul: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
   { no: 20, name: "Collins Adwar",    reg: 50, may: 200, jun: 0, jul: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
   { no: 21, name: "Irine Awuor",      reg: 50, may: 150, jun: 0, jul: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
+  { no: 20, name: "Charles Ochieng",  reg: 50, may: 200, jun: 0, jul: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
+  { no: 21, name: "Lucy Kamau",       reg: 50, may: 200, jun: 0, jul: 0, aug: 0, sep: 0, oct: 0, nov: 0, dec: 0 },
 ];
 
 function loadContribs() {
