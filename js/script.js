@@ -353,7 +353,7 @@ function renderMembers(filter = '') {
 
     if (!isActive) { friendlyStatus = "Inactive"; statusClass = "badge-overdue"; }
     else if (status.label === 'Up to Date') { friendlyStatus = "Doing Great"; statusClass = "badge-uptodate"; }
-    else if (status.label === 'Ahead') { friendlyStatus = "Super Hero"; statusClass = "badge-ahead"; }
+    else if (status.label === 'Ahead') { friendlyStatus = "Well Done"; statusClass = "badge-ahead"; }
     else if (status.label === 'Overdue') { friendlyStatus = "Needs a Boost"; statusClass = "badge-overdue"; }
     else if (status.label === 'Pending') { friendlyStatus = "Moving Forward"; statusClass = "badge-partial"; }
 
