@@ -813,6 +813,7 @@ function finishEdit(idx, field, input, parent) {
   renderContributionDashboard();
   updateFinancialSummaryFromContribs();
   updateTransactionsFromContribs();
+  renderMembers();
   initCharts();
 }
 
@@ -1010,6 +1011,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ====== TOAST NOTIFICATION ====== */
+function copyPaymentInfo(text) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(() => {
+      let btn = event.currentTarget;
+      btn.classList.add('copied');
+      showToast('Copied: ' + text);
+      setTimeout(() => btn.classList.remove('copied'), 2000);
+    }).catch(() => {
+      fallbackCopy(text);
+    });
+  } else {
+    fallbackCopy(text);
+  }
+  function fallbackCopy(t) {
+    let ta = document.createElement('textarea');
+    ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    showToast('Copied: ' + t);
+  }
+}
+
 function showToast(message) {
   let toast = document.querySelector('.toast');
   if (!toast) {
